@@ -1,0 +1,1 @@
+portscan : nmap -sS <HOSTNAME_OR_IP>

@@ -1,0 +1,1 @@
+find process using a file : lsof <FILE_FULL_PATH>

@@ -1,0 +1,2 @@
+cpu number : cat /proc/cpuinfo | grep proce
+cpu model : cat /proc/cpuinfo | grep model
