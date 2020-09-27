@@ -1,0 +1,1 @@
+cpu %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle statistics  every 1 second 5 times : mpstat 1 5
