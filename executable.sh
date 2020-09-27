@@ -1,26 +1,31 @@
-strace
-ltrace
-sysdig
-ps
-top
-lttng
-stap
-
-
-
-echo "1. Strace "
-echo "2. Ltrace "
-echo "3. "
-echo "4. CPU  Inspection"
-echo "5. IO  Inspection"
-echo "6. Java  Inspection"
-
+echo " " 
+echo "#### " 
+echo "#### EXECUTABLE:" 
+echo "#### " 
+echo " " 
+echo "1. strace "
+echo "2. ltrace "
+echo "3. sysdig"
+echo "4. ps"
+echo "5. top"
+echo "6. lttng"
+echo "7. stap"
+echo -n "Your choice (1-7) : "
 read selection
+echo ""
+
 
 case $selection in
 
   1)
-    echo "1"
+    echo -n "Executable :"
+    read executable
+    echo " " 
+    echo "press enter to execute this command :   \"strace $executable\" "
+    echo " " 
+    read
+    strace $executable
+    exit
     ;;
 
   2)
@@ -31,5 +36,14 @@ case $selection in
     echo "all other"
     ;;
 esac
+
+
+strace
+ltrace
+sysdig
+ps
+top
+lttng
+stap
 
 

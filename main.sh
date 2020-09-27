@@ -10,6 +10,11 @@ then
     fi	   
 fi
 
+echo " "
+echo "#### "
+echo "#### INSPECTORS :"
+echo "#### "
+echo " "
 
 echo "1. Executable Inspection"
 echo "2. Network Inspection"
@@ -18,8 +23,9 @@ echo "4. CPU  Inspection"
 echo "5. IO/File/Disk  Inspection"
 echo "6. Java  Inspection"
 echo "7. Device  Inspection"
-
+echo -n "Your choice (1-7) : "
 read selection
+echo ""
 
 case $selection in
 
