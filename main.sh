@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ -z "INSPECTOR_HOME" ]
 then
@@ -16,58 +17,48 @@ echo "#### INSPECTORS :"
 echo "#### "
 echo " "
 
-echo "1. Executable Inspection"
-echo "2. Network Inspection"
-echo "3. RAM  Inspection"
-echo "4. CPU  Inspection"
-echo "5. IO/File/Disk  Inspection"
-echo "6. Java  Inspection"
-echo "7. Device  Inspection"
-echo -n "Your choice (1-7) : "
+
+categories=($(ls $INSPECTOR_HOME/commands))
+for i in ${!categories[@]}
+do
+ echo "$i. ${categories[$i]} "
+done
+echo -n "Your choice (1-${#categories[@]}) : "
 read selection
 echo ""
 
-case $selection in
+selected_category=${categories[$selection]}
 
-  1)
-    ./executable.sh 
-    exit
-    ;;
+commands=($(ls $INSPECTOR_HOME/commands/$selected_category))
+for i in ${!commands[@]}
+do
+ echo "$i. ${commands[$i]} "
+done
+echo -n "Your choice (1-${#commands[@]}) : "
+read selection
+echo ""
 
-  2)
-    ./network.sh 
-    exit
-    ;;
+selected_command=${commands[$selection]}
 
-  3)
-    ./ram.sh 
-    exit
-    ;;
-
-  4)
-    ./cpu.sh 
-    exit
-    ;;
-
-  5)
-    ./io_file_disk.sh 
-    exit
-    ;;
-
-  6)
-    ./java.sh 
-    exit
-    ;;
-
-  7)
-    ./devices.sh 
-    exit
-    ;;
+echo "########################################################################### "
+echo ""
+echo ""
+echo "$selected_command Usage Examples : "
+echo ""
+cat $INSPECTOR_HOME/commands/$selected_category/$selected_command
+echo ""
+echo ""
+echo "########################################################################### "
+echo ""
+echo ""
 
 
-  *)
-    echo "Please select 1-7 "
-    ;;
-esac
+echo -n "Parameters : "
+read params
+echo " " 
+echo "press enter to execute this command :   \"$selected_command $params\" "
+echo " " 
+read
+$selected_command $params
 
 
